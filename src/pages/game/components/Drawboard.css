@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "HWR";
+  font-weight: 50;
+  src: url("../../../fonts/HakgyoansimWoojuR.ttf");
+}
+
+.canvas-container {
+  width: 100%;
+}
