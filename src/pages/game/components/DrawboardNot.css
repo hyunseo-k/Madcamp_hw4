@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "HWR";
+  font-weight: 50;
+  src: url("../../../fonts/Cafe24Ssurround-v2.0.ttf");
+}
+
+.canvas-container {
+  width: 100%;
+}
