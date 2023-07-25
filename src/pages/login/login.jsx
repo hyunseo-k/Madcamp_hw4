@@ -14,6 +14,7 @@ import {
 from 'mdb-react-ui-kit';
 import './login.css';
 import Modal from 'react-modal';
+import  CustomModal from '../../component/CustomModal';
 
 function Login({ getUserInfo, updateUserInfo }) {
   const [allCheck, setAllCheck] = useState(false);
@@ -24,21 +25,32 @@ function Login({ getUserInfo, updateUserInfo }) {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [passwordConfirm, setPasswordConfirm] = useState('');
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
-  const handlePasswordConfirmChange = (e) => setPasswordConfirm(e.target.value);
 
   const handleLoginButtonClick = () => {
     console.log('이메일: ', email);
     console.log('비밀번호: ', password);
-    console.log('비밀번호 확인: ', passwordConfirm);
     //로그인 로직 짜기
     //1. response 받아오기 2. email이 response.email과 같다면 updateUserInfo하고 navigate("/profile"); 1,2 두 경우 각각 실패 시 실패 팝업
+    updateUserInfo({
+      nickname: "또잉",
+      email: email,
+      password: password,
+      ranking: 1,
+      score: 0,
+      friends: ["보라", "뚜비", "나나"]
+    })
     setModalIsOpen(true)
   };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+    navigate("/profile"); // 팝업이 닫힐 때 프로필 페이지로 이동
+  };
+
 
   const handleKakaoButtonClick = () => {
     
@@ -119,7 +131,6 @@ function Login({ getUserInfo, updateUserInfo }) {
             <MDBCardBody className='p-5'>
               <MDBInput value={email} onChange={handleEmailChange} wrapperClass='mb-4' label='이메일' id='form' type='email'/>
               <MDBInput value={password} onChange={handlePasswordChange} wrapperClass='mb-4' label='비밀번호' id='form' type='password'/>
-              <MDBInput value={passwordConfirm}  onChange={handlePasswordConfirmChange} wrapperClass='mb-4' label='비밀번호 확인' id='form' type='password'/>
 
               <MDBBtn onClick={handleLoginButtonClick} id='form' className='w-100 mb-4 btn btn-info' size='md' style={{ fontSize: '18px' }} >로그인</MDBBtn>
 
@@ -146,9 +157,9 @@ function Login({ getUserInfo, updateUserInfo }) {
       </MDBRow>
 
       <>
-        <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
-          This is Modal content
-        </Modal>
+        <CustomModal isOpen={modalIsOpen} closeModal={closeModal}>
+          로그인에 성공했습니다.
+        </CustomModal>
       </>
 
     </MDBContainer>

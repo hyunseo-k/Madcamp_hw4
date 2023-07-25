@@ -3,11 +3,10 @@ import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCar
 import './profile.css'
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import EditProfile from './EditProfile';
 import Game from '../game/game';
 
 
-export default function Profile({ getUserInfo, updateUserInfo }) {
+export default function EditProfile({ getUserInfo, updateUserInfo }) {
   const navigate = useNavigate();
   
   const handleGameClick = (e) => {
@@ -17,8 +16,6 @@ export default function Profile({ getUserInfo, updateUserInfo }) {
   const handleEditClick = () => {
     navigate("/profile-edit"); // Navigate to the EditProfile component
   };
-
-
 
   return (
     <div className="container-fluid gradient-custom-2" style={{ backgroundColor: '#9de2ff' }}>
@@ -30,12 +27,12 @@ export default function Profile({ getUserInfo, updateUserInfo }) {
                 <div className="ms-4 mt-5 d-flex flex-column" style={{ width: '150px' }}>
                   <MDBCardImage src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
                     alt="Generic placeholder image" className="mt-4 mb-2 img-thumbnail" fluid style={{ width: '150px', zIndex: '1' }} />
-                  {/* <MDBBtn onClick={handleEditClick} className="btn btn-secondary btn-rounded"  data-mdb-ripple-color="dark" style={{ overflow: 'visible', fontSize: '16px'}}>
+                  <MDBBtn onClick={handleEditClick} className="btn btn-secondary btn-rounded"  data-mdb-ripple-color="dark" style={{ overflow: 'visible', fontSize: '16px'}}>
                     수정하기
-                  </MDBBtn> */}
+                  </MDBBtn>
                 </div>
                 <div className="ms-3" style={{ marginTop: '120px' }}>
-                  <MDBTypography id='form_t' tag="h5" style={{ fontSize: '25px' }}>d</MDBTypography>
+                  <MDBTypography id='form_t' tag="h5" style={{ fontSize: '25px' }}>Andy Horwitz</MDBTypography>
                   <MDBCardText>New York</MDBCardText>
                 </div>
               </div>

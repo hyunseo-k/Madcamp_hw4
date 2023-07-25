@@ -17,6 +17,7 @@ import Login from "./pages/login/login";
 import Register from "./pages/register/register";
 import Profile from "./pages/profile/profile";
 import Game from "./pages/game/game";
+import EditProfile  from './pages/profile/EditProfile';
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 
 export const defaultUserInfo = {
@@ -25,6 +26,7 @@ export const defaultUserInfo = {
   password: "test",
   ranking: 1,
   score: 0,
+  avatar: 0,
   friends: [],
 };
 
@@ -53,15 +55,24 @@ function App() {
         />
         <Route
           path="/profile"
-          element={<Profile />}
-          // element={
-          //   <EthicsProblemList
-          //     getUserInfo={getUserInfo}
-          //     updateUserInfo={updateUserInfo}
-          //   />
-          // }
+          element={
+            <Profile 
+              getUserInfo={getUserInfo}
+              updateUserInfo={updateUserInfo}
+            />
+          }
+        />
+        <Route
+          path="/profile-edit"
+          element={
+            <EditProfile 
+              getUserInfo={getUserInfo}
+              updateUserInfo={updateUserInfo}
+            />
+          }
         />
         <Route path="/register" element={<Register />} />
+
         <Route
           path="/"
           element={

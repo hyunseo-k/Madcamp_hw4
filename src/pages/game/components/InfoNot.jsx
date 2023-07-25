@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 const InfoNot = () => {
   const [seconds, setSeconds] = useState(60);
   // 가상의 플레이어 정보 데이터 (예시로 만들어짐)
@@ -28,12 +27,14 @@ const InfoNot = () => {
     name: "플레이어 1",
     score: 20,
     isCurrentPlayer: false, // 현재 플레이어인지 여부 (true면 플레이어 1이 현재 플레이어)
+    image: "/img/character1.png",
   };
 
   const player2 = {
     name: "플레이어 2",
     score: 15,
     isCurrentPlayer: true, // 현재 플레이어인지 여부 (false면 플레이어 2가 현재 플레이어)
+    image: "/img/character2.png",
   };
 
   // 각 플레이어에 대한 정보를 표시하기 위한 state
@@ -71,7 +72,7 @@ const InfoNot = () => {
             key={player.name}
             className={`${
               player.isCurrentPlayer ? "border border-dark border-1" : ""
-            } py-2 px-3 mb-2`}
+            } py-2 px-3 mb-2 `}
             style={{
               borderRadius: "10px",
               borderColor: player.isCurrentPlayer ? "#000000" : "", // 현재 플레이어일 때 윤곽선 색상 변경
@@ -79,7 +80,20 @@ const InfoNot = () => {
             }}
           >
             <h5 className="fw-bold">{player.name}</h5>
-            <p>Score: {player.score}</p>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row", 
+              }}
+            >
+              <img
+                className="me-3"
+                src="/img/character1.png"
+                alt="Image Placeholder"
+                style={{ width: "80px", height: "80px" }}
+              />
+              <p>Score: {player.score}</p>
+            </div>
           </div>
         ))}
       </div>

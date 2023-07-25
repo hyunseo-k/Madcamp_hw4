@@ -28,12 +28,14 @@ const Info = () => {
     name: "플레이어 1",
     score: 20,
     isCurrentPlayer: true, // 현재 플레이어인지 여부 (true면 플레이어 1이 현재 플레이어)
+    image: "character1.png", // 이미지 파일 이름 추가
   };
 
   const player2 = {
     name: "플레이어 2",
     score: 15,
     isCurrentPlayer: false, // 현재 플레이어인지 여부 (false면 플레이어 2가 현재 플레이어)
+    image: "character2.png", // 이미지 파일 이름 추가
   };
 
   // 각 플레이어에 대한 정보를 표시하기 위한 state
@@ -79,7 +81,20 @@ const Info = () => {
             }}
           >
             <h5 className="fw-bold">{player.name}</h5>
-            <p>Score: {player.score}</p>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row", 
+              }}
+            >
+              <img
+                className="me-3"
+                src="/img/character1.png"
+                alt="Image Placeholder"
+                style={{ width: "80px", height: "80px" }}
+              />
+              <p>Score: {player.score}</p>
+            </div>
           </div>
         ))}
       </div>

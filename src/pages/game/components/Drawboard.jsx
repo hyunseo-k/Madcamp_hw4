@@ -86,20 +86,26 @@ const Drawboard = () => {
 
   const enableFreeDrawing = () => {
     const canvas = fabricCanvasRef.current;
-
-    canvas.isDrawingMode = true;
+    
+    if (!canvas.isDrawingMode) {
+      // 그리기 모드가 활성화되어 있지 않을 때만 그리기 모드를 활성화
+      canvas.isDrawingMode = true;
+    }
+    else if (canvas.isDrawingMode) {
+      canvas.isDrawingMode = false;
+    }
+    
     canvas.freeDrawingBrush.width = brushWidth;
-
+  
     if (isErasing) {
       canvas.freeDrawingBrush.color = '#ffffff'; // Set the brush color to white for erasing effect
       canvas.freeDrawingBrush.backgroundColor = '#ffffff'; // Set the background color to white for erasing effect
-      canvas.isDrawingMode = true; // Enable drawing mode for erasing
     } else {
       canvas.freeDrawingBrush.color = currentColor; // Set the brush color to the selected color for drawing
       canvas.freeDrawingBrush.backgroundColor = 'transparent'; // Set the background color to transparent for drawing
-      canvas.isDrawingMode = true; // Enable drawing mode
     }
   };
+  
 
   const handleColorChange = (color) => {
     setCurrentColor(color);
@@ -141,7 +147,7 @@ const Drawboard = () => {
         borderTopRightRadius: "15px",
       }}
     >
-      <p id="form" className="mb-0 fw-bold" style={{ fontSize: '23px'}}>현서 님이 그림을 그리고 있습니다!</p>
+      <p id="form" className="mb-0 fw-bold" style={{ fontSize: '23px' }}>현서 님이 그림을 그리고 있습니다!</p>
     </MDBCardHeader>
     <MDBCardBody className="canvas-container">
       <span class="badge rounded-pill badge-primary mb-2" style={{ width: '80px', fontSize: '20px' }}>제시어</span>

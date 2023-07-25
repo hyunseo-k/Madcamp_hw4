@@ -61,14 +61,22 @@ function Register() {
     console.log('이메일: ', email);
     console.log('비밀번호: ', password);
     console.log('비밀번호 확인: ', passwordConfirm);
-    //로그인 로직 짜기
-    //1. response 받아오기 2. email이 response.email과 같다면 updateUserInfo하고 navigate("/profile"); 1,2 두 경우 각각 실패 시 실패 팝업
+    //회원가입 로직 짜기
+    //필수 체크박스 체크
+    //중복확인 성공 -- api
+    //비밀번호=비밀번호확인
+    //회원가입 성공하면 navigate("/");
+
     setModalIsOpen(true)
   };
 
   const handleKakaoButtonClick = () => {
     
   }
+
+  const duplicateHandler = async (e) => {
+    
+  };
 
 
   return (
@@ -102,7 +110,7 @@ function Register() {
                   <MDBInput value={email} onChange={handleEmailChange} wrapperClass='mb-4' label='이메일' id='form' type='email'/>
                 </MDBCol>
                 <MDBCol md='3'>
-                  <MDBBtn className='w-100 mb-4 btn btn-info' size='md' style={{ minWidth: 'fit-content', fontSize: '16px' }}>중복 체크</MDBBtn>
+                  <MDBBtn onClick={duplicateHandler} className='w-100 mb-4 btn btn-info' size='md' style={{ minWidth: 'fit-content', fontSize: '16px' }}>중복 체크</MDBBtn>
                 </MDBCol>
               </MDBRow>
               <MDBInput value={password} onChange={handlePasswordChange} wrapperClass='mb-4' label='비밀번호' id='form' type='password'/>
