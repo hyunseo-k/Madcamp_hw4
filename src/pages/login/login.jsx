@@ -30,20 +30,36 @@ function Login({ getUserInfo, updateUserInfo }) {
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
 
-  const handleLoginButtonClick = () => {
+  const handleLoginButtonClick = async (e) => {
     console.log('이메일: ', email);
     console.log('비밀번호: ', password);
     //로그인 로직 짜기
     //1. response 받아오기 2. email이 response.email과 같다면 updateUserInfo하고 navigate("/profile"); 1,2 두 경우 각각 실패 시 실패 팝업
-    updateUserInfo({
-      nickname: "또잉",
-      email: email,
-      password: password,
-      ranking: 1,
-      score: 0,
-      friends: ["보라", "뚜비", "나나"]
-    })
-    setModalIsOpen(true)
+    try {
+      const response = await fetch(`http://172.10.5.48/polls/user/?email=${email}&password=${password}`);
+      if (response.ok) {
+        const data = await response.json();
+        console.log("response", data);
+        if (email === data.email) {
+          updateUserInfo({
+            email: email,
+            password: password,
+            nickname: data.nickname,
+            ranking: data.ranking,
+            score: data.score,
+          });
+
+          setModalIsOpen(true)
+
+          // navigate("/selection");
+          // 친구들 있는 화면으 넘어가
+      } else {
+        console.error("Error");
+      }
+    }} catch (error) {
+      console.error("Error:", error);
+    }
+    //
   };
 
   const closeModal = () => {

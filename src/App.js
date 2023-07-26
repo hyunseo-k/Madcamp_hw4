@@ -26,7 +26,6 @@ export const defaultUserInfo = {
   password: "test",
   ranking: 1,
   score: 0,
-  avatar: 0,
   friends: [],
 };
 

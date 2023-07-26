@@ -1,14 +1,17 @@
 import React from 'react';
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn, MDBTypography } from 'mdb-react-ui-kit';
 import './profile.css'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import EditProfile from './EditProfile';
 import Game from '../game/game';
+import { userAPI } from "../../apis/userAPI";
+import { defaultUserInfo } from "../../App";
 
 
 export default function Profile({ getUserInfo, updateUserInfo }) {
   const navigate = useNavigate();
+  const [tempUserInfo, setTempUserInfo] = useState(defaultUserInfo);
   
   const handleGameClick = (e) => {
     navigate("/game");
@@ -18,6 +21,12 @@ export default function Profile({ getUserInfo, updateUserInfo }) {
     navigate("/profile-edit"); // Navigate to the EditProfile component
   };
 
+  useEffect(() => {
+    let tempUserInfo = getUserInfo();
+    console.log("userinfo", tempUserInfo);
+
+    // setUserInfo(getUserInfo());
+  }, []);
 
 
   return (
@@ -28,15 +37,15 @@ export default function Profile({ getUserInfo, updateUserInfo }) {
             <MDBCard className="w-100">
               <div className="rounded-top text-white d-flex flex-row" style={{ backgroundColor: '#000', height: '200px' }}>
                 <div className="ms-4 mt-5 d-flex flex-column" style={{ width: '150px' }}>
-                  <MDBCardImage src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
+                  <MDBCardImage src="/img/character2.png"
                     alt="Generic placeholder image" className="mt-4 mb-2 img-thumbnail" fluid style={{ width: '150px', zIndex: '1' }} />
                   {/* <MDBBtn onClick={handleEditClick} className="btn btn-secondary btn-rounded"  data-mdb-ripple-color="dark" style={{ overflow: 'visible', fontSize: '16px'}}>
                     수정하기
                   </MDBBtn> */}
                 </div>
                 <div className="ms-3" style={{ marginTop: '120px' }}>
-                  <MDBTypography id='form_t' tag="h5" style={{ fontSize: '25px' }}>d</MDBTypography>
-                  <MDBCardText>New York</MDBCardText>
+                  <MDBTypography id='form_t' tag="h5" style={{ fontSize: '25px' }}>{tempUserInfo.nickname}</MDBTypography>
+                  <MDBCardText>{tempUserInfo.ranking}</MDBCardText>
                 </div>
               </div>
               <div className="p-4 text-black" style={{ backgroundColor: '#f8f9fa' }}>
@@ -59,7 +68,7 @@ export default function Profile({ getUserInfo, updateUserInfo }) {
                       <MDBCardText>별명</MDBCardText>
                     </MDBCol>
                     <MDBCol sm="9">
-                      <MDBCardText className="text-muted">Johnatan Smith</MDBCardText>
+                      <MDBCardText className="text-muted">{tempUserInfo.nickname}</MDBCardText>
                     </MDBCol>
                   </MDBRow>
                   <hr />
@@ -68,7 +77,7 @@ export default function Profile({ getUserInfo, updateUserInfo }) {
                       <MDBCardText>이메일</MDBCardText>
                     </MDBCol>
                     <MDBCol sm="9">
-                      <MDBCardText className="text-muted">example@example.com</MDBCardText>
+                      <MDBCardText className="text-muted">{tempUserInfo.email}</MDBCardText>
                     </MDBCol>
                   </MDBRow>
                   <hr />
@@ -77,7 +86,7 @@ export default function Profile({ getUserInfo, updateUserInfo }) {
                       <MDBCardText>랭킹</MDBCardText>
                     </MDBCol>
                     <MDBCol sm="9">
-                      <MDBCardText className="text-muted">10</MDBCardText>
+                      <MDBCardText className="text-muted">{tempUserInfo.ranking}</MDBCardText>
                     </MDBCol>
                   </MDBRow>
                   <hr />
@@ -86,7 +95,7 @@ export default function Profile({ getUserInfo, updateUserInfo }) {
                       <MDBCardText>누적 스코어</MDBCardText>
                     </MDBCol>
                     <MDBCol sm="9">
-                      <MDBCardText className="text-muted">100000</MDBCardText>
+                      <MDBCardText className="text-muted">{tempUserInfo.score}</MDBCardText>
                     </MDBCol>
                   </MDBRow>
                   

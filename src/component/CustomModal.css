@@ -1,0 +1,14 @@
+/* CustomModal.css 파일 */
+
+/* 원하는 폰트를 폰트 링크나 로컬에 추가한 경우, 폰트 이름을 적절히 변경해주세요 */
+@font-face {
+  font-family: "HWR";
+  font-weight: 50;
+  src: url("../fonts/Cafe24Ssurround-v2.0.ttf");
+}
+
+
+/* 모달 내부 텍스트에 폰트를 적용합니다. */
+.Modal {
+  font-family: "HWR";
+}
