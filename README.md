@@ -63,15 +63,21 @@ In game page, we have chatting and drawing componenets. We used 'usewebsocket' l
 
 ## ✈️How to play
 
-'''
+**BackEnd**
+
+```
 docker run --rm -p 6379:6379 redis:7
 python3 manage.py runserver 0.0.0.0:80
-'''
+```
+
 run this in server<br/>
 
-'''
+**FrontEnd**
+
+```
 npm start
-'''
+```
+
 run this in react app<br/>
 
 
