@@ -20,32 +20,28 @@ making catchmind with websocket, react<br/>
 
 ## 🖼️Screenshots
 <br/>
-
-<br/>
-Login page
-
-<br/>
-
-Login Success
-
+<img src="https://github.com/hyunseo-k/Madcamp_hw4/assets/55375379/6f444652-bf0c-4160-ae0f-5eaa7740685f" width = "960" height = "540">
+<br/>**Login page**
 <br/>
 <br/>
 <br/>
-
-Singup Page
+<img src="https://github.com/hyunseo-k/Madcamp_hw4/assets/55375379/a34edf9b-8af3-4675-bd09-bceabffbcdd5" width = "960" height = "540">
+<br/>**Login Success**
 <br/>
 <br/>
 <br/>
-
-Profile Page
+<img src="https://github.com/hyunseo-k/Madcamp_hw4/assets/55375379/e6f1da08-441a-4d4c-afa3-5ab59a24b352" width = "960" height = "540">
+<br/>**Signup Page**
 <br/>
 <br/>
-
-
 <br/>
-![gamepage](https://github.com/hyunseo-k/Madcamp_hw4/assets/55375379/c226706c-2b09-4718-813c-b1155c78b4cc)
-
-Game Page
+<img src="https://github.com/hyunseo-k/Madcamp_hw4/assets/55375379/81f4299c-55b0-488d-892f-e807c7774c2d" width = "960" height = "540">
+<br/>**Profile Page**
+<br/>
+<br/>
+<br/>
+<img src="https://github.com/hyunseo-k/Madcamp_hw4/assets/55375379/218b1061-dee9-46ca-81ef-0b4e194be8f0" width = "960" height = "540">
+<br/>**Game Page**
 <br/>
 
 
