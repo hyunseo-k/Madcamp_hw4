@@ -20,19 +20,31 @@ making catchmind with websocket, react<br/>
 
 ## 🖼️Screenshots
 <br/>
-사진넣기<br/>
+
+<br/>
 Login page
+
+<br/>
+
+Login Success
+
 <br/>
 <br/>
-사진넣기<br/>
+<br/>
+
 Singup Page
 <br/>
 <br/>
-사진넣기<br/>
+<br/>
+
 Profile Page
 <br/>
 <br/>
-사진넣기<br/>
+
+
+<br/>
+![gamepage](https://github.com/hyunseo-k/Madcamp_hw4/assets/55375379/c226706c-2b09-4718-813c-b1155c78b4cc)
+
 Game Page
 <br/>
 
@@ -42,3 +54,18 @@ Game Page
 We used django channels to make websocket backend. <br/>
 In game page, we have chatting and drawing componenets. We used 'usewebsocket' library for chatting, and 'w3cwebsocket' library for drawing componenets. It was easy to make chatting page synchronize with websocket backend, but drawing page was hard to synchronize. So we find new method to show our server's canvas in game page, simply bringing canvas page into our react page.
 <br/>
+
+## ✈️How to play
+
+'''
+docker run --rm -p 6379:6379 redis:7
+python3 manage.py runserver 0.0.0.0:80
+'''
+run this in server<br/>
+
+'''
+npm start
+'''
+run this in react app<br/>
+
+
