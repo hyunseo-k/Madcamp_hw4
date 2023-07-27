@@ -116,7 +116,7 @@ function Register() {
             score: score,
           }
           console.log(user)
-          const response = await fetch('http://172.10.5.48/polls/register/', {
+          const response = await fetch('http://172.10.5.48/chat/register/', {
             method:'POST',
             body: JSON.stringify(user)
           });
@@ -163,7 +163,7 @@ function Register() {
 
   const duplicateHandler = async (e) => {
     try {
-      const response = await fetch(`http://172.10.5.48/polls/user/idcheck/?email=${email}`);
+      const response = await fetch(`http://172.10.5.48/chat/user/idcheck/?email=${email}`);
       
       if (response.ok) {
         // Login successful, update user info and navigate to the desired page
@@ -174,6 +174,7 @@ function Register() {
           console.log("성공");
           setDuplicatePopup(false);
           setSuccessPopup(true);
+          setFailure2Popup(false);
         }
         else if(data.status===501){
           console.log("중복");
@@ -184,6 +185,7 @@ function Register() {
         console.log("실패");
         // Login failed, display failure message
         setFailurePopup(true);
+        
       }
     } catch (error) {
       // Handle any network or server errors

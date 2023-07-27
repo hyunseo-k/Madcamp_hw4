@@ -17,11 +17,12 @@ import Login from "./pages/login/login";
 import Register from "./pages/register/register";
 import Profile from "./pages/profile/profile";
 import Game from "./pages/game/game";
+import Wait from "./pages/game/Wait";
 import EditProfile  from './pages/profile/EditProfile';
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 
 export const defaultUserInfo = {
-  nickname: "또잉",
+  nickname: "또잉시치",
   email: "test@gmail.com",
   password: "test",
   ranking: 1,
@@ -78,6 +79,25 @@ function App() {
             <Login getUserInfo={getUserInfo} updateUserInfo={updateUserInfo} />
           }
         />
+
+        <Route
+          path="/wait"
+          element={
+            <Wait getUserInfo={getUserInfo} updateUserInfo={updateUserInfo} />
+          }
+        />
+
+        <Route
+          path="/chat2"
+          element={
+            <iframe
+              title="Chat2"
+              src="/Chat2.html" // Chat2.html의 경로를 입력하세요
+              width="100%"
+              height="500"
+            />
+          }
+          />
       </Routes>
     </Router>
   );

@@ -23,10 +23,9 @@ export default function Profile({ getUserInfo, updateUserInfo }) {
 
   useEffect(() => {
     let tempUserInfo = getUserInfo();
+    setTempUserInfo(tempUserInfo);
     console.log("userinfo", tempUserInfo);
-
-    // setUserInfo(getUserInfo());
-  }, []);
+  }, [tempUserInfo]); // tempUserInfo 의존성을 추가합니다.
 
 
   return (

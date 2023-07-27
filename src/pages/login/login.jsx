@@ -36,7 +36,7 @@ function Login({ getUserInfo, updateUserInfo }) {
     //로그인 로직 짜기
     //1. response 받아오기 2. email이 response.email과 같다면 updateUserInfo하고 navigate("/profile"); 1,2 두 경우 각각 실패 시 실패 팝업
     try {
-      const response = await fetch(`http://172.10.5.48/polls/user/?email=${email}&password=${password}`);
+      const response = await fetch(`http://172.10.5.48/chat/user/?email=${email}&password=${password}`);
       if (response.ok) {
         const data = await response.json();
         console.log("response", data);

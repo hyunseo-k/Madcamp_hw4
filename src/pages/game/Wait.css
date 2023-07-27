@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "HWR";
+  font-weight: 50;
+  src: url("../../fonts/Cafe24Ssurround-v2.0.ttf");
+}
+
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: #fbc2eb;
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, hsl(218, 41%, 35%), hsl(218, 41%, 15%));
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, hsl(218, 41%, 35%), hsl(218, 41%, 15%))
+}
+
+#root {
+  display: flex;
+  min-width: 100vh;
+}
+
+.MDBContainer {
+  flex: 1;
+}
+
+#form_t {
+  /* Your styles for the form here */
+  font-family: "HWR";
+  font-size: '100px' ;
+  font-weight: bold;
+}
+
+
+#form2 {
+  font-family: "HWR";
+  font-size: 30px;
+  color: white;
+  text-align: center; /* Horizontally center the text */
+}
